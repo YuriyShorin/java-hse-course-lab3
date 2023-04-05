@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Определитель пола и возраста</title>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+    <form th:action="@{/define}" method="post" th:object="${ageAndSexDeterminant}">
+        <h3>Определитель пола и возраста</h3>
+        <label>
+            <input type="text" th:field="*{fullName}" placeholder="Введите фамилию, имя и отчество">
+        </label>
+        <p>Дата рождения:</p>
+        <label>
+            <input type="date" th:field="*{dateOfBirth}"<br><br>
+        </label>
+        <button type="submit" name="define">Определить</button>
+        <p th:text="${ageAndSexDeterminant.sex}"></p>
+        <p th:text="${ageAndSexDeterminant.age}"></p>
+    </form>
+</body>
+</html>
+
